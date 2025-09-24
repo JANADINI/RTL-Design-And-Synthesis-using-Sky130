@@ -104,7 +104,14 @@ After dumping into the simulator the code will be in a executable file`a.out`
 ./a.out
 ```
 # Step 6: View the `.vcd` file in `GTKwave`
-![image](
+
+![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Mux%20in%20GTKwave.png)
+
+> [!Tip]
+> ```bash
+> gvim tb_good_mux.v -o good_mux.v
+> ```
+>  Opens tb_good_mux.v and good_mux.v together in GVim. The -o option makes them appear in a split window (side by side). You can compare, view, and edit both files in the same editor, and save changes normally with :w or exit with :q.
 
 
 
