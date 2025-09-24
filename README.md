@@ -111,7 +111,7 @@ After dumping into the simulator the code will be in a executable file`a.out`
 > ```bash
 > gvim tb_good_mux.v -o good_mux.v
 > ```
->  Opens tb_good_mux.v![code]( and good_mux.v![code]( together in GVim. The -o option makes them appear in a split window (side by side). You can compare, view, and edit both files in the same editor, and save changes normally with :w or exit with :q.
+>  Opens tb_good_mux.v![code]( and good_mux.v(![code](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/RTL%20code%20for%20good_mux.v)) together in GVim. The -o option makes them appear in a split window (side by side). You can compare, view, and edit both files in the same editor, and save changes normally with :w or exit with :q.
 
 
 
