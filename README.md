@@ -94,16 +94,16 @@ Inside this folder you will see all the Standard cells / library files for RTL &
 
 ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/code%20dumped%20in%20iverilog(a.out).png)
 
-# Step 4: Next dump th RTL code in iverilog 
+# Step 4: Next dump th <mark>RTL code</mark> in <mark>iverilog</mark> 
 ```bash
 iverilog good_mux.v  tb_good_mux.v
 ```
 After dumping into the simulator the code will be in a executable file`a.out`
-# Step 5: Execute the `a.out` executable file
+# Step 5: Execute the <mark>a.out</mark> executable file
 ```bash
 ./a.out
 ```
-# Step 6: View the `.vcd` file in `GTKwave`
+# Step 6: View the <mark>.vcd</mark> file in <mark>GTKwave</mark>
 
 ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Mux%20in%20GTKwave.png)
 
