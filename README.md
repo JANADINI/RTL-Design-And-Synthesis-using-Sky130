@@ -33,7 +33,7 @@ A simulator is a tool used in RTL design flow to run Verilog/VHDL code and obser
 
 - **What it does**: Defines logic and data flow between inputs and outputs.
 
-- **Examples:** Verilog code for MUX, Flip-Flop, ALU.
+- **Examples:** Verilog code for MUX, Flip-Flop, ALU,...
 
 - **Purpose**: Provide a clear model of circuit behavior for simulation and synthesis.
 
@@ -44,8 +44,10 @@ A simulator is a tool used in RTL design flow to run Verilog/VHDL code and obser
 
 - **What it does**: Provides stimulus (inputs), observes outputs, and checks if the design behaves as expected.
 
-- **Examples**: Verilog testbench for MUX, Flip-Flop, ALU.
+- **Examples**: Verilog testbench for MUX, Flip-Flop, ALU,...
 
 - **Purpose**: Validate and debug the design before synthesis and hardware implementation.
 
-  
+  ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Testbench.png)
+
+  ---
