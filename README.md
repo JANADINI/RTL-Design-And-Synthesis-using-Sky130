@@ -38,15 +38,15 @@ A simulator is a tool used in RTL design flow to run Verilog/VHDL code and obser
 - **Purpose**: Creates a clear, testable model of the circuit that can be simulated and synthesized for hardware implementation
   
   ---
- # Testbench
+# Testbench
 
-- **Definition**: A verification environment written in HDL to test the functionality of the design.
+- **Definition**: A verification environment written in HDL to test and validate the design.
 
-- **What it does**: Provides stimulus (inputs), observes outputs, and checks if the design behaves as expected.
+- **What it does**: Applies stimulus to the design, observes outputs, and checks if the behavior matches the specification. <mark>It does not have any primary inputs or outputs of its own.</mark>
 
-- **Examples**: Verilog testbench for MUX, Flip-Flop, ALU,...
+- **Examples**: Verilog testbench for MUX, Flip-Flop, ALU,..
 
-- **Purpose**: Validate and debug the design before synthesis and hardware implementation.
+- **Purpose**: Helps debug and verify the design before synthesis and hardware implementation.
 
   ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Testbench.png)
 
