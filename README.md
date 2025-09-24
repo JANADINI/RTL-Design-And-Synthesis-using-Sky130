@@ -92,4 +92,20 @@ Inside this folder you will see all the Standard cells / library files for RTL &
 ```
 # Step 3:Then go to verilog_files and check whether all librarires are cloned properly
 
+![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/code%20dumped%20in%20iverilog(a.out).png)
+
+# Step 4: Next dump th RTL code in iverilog 
+```bash
+iverilog good_mux.v  tb_good_mux.v
+```
+After dumping into the simulator the code will be in a executable file`a.out`
+# Step 5: Execute the `a.out` executable file
+```bash
+./a.out
+```
+# Step 6: View the `.vcd` file in `GTKwave`
+![image](
+
+
+
 
