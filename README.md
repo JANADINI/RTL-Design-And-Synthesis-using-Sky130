@@ -51,3 +51,45 @@ A simulator is a tool used in RTL design flow to run Verilog/VHDL code and obser
   ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Testbench.png)
 
   ---
+ # Step 0: Start from your home
+ ```bash
+cd /home/vboxuser/vsd/VLSI
+ls
+```
+Once if you list it , you will see
+```bash
+(no sky130 folder yet)
+```
+# Step 1: Clone the GitHub repository  ![link](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git)
+```bash
+git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+ls
+```
+You will see
+```bash
+sky130RTLDesignAndSynthesisWorkshop
+```
+Repository cloned successfully. All project files are inside this folder.
+# Step 2: Go inside project folder
+```bash
+cd sky130RTLDesignAndSynthesisWorkshop
+ls
+```
+Inside this folder you will see all the Standard cells / library files for RTL & synthesis.The Directory Flow from /home will be like:
+```bash
+/home
+└── vboxuser
+    └── vsd
+        └── VLSI
+            └── sky130RTLDesignAndSynthesisWorkshop/
+                ├── my_lib/
+                │   └── verilog_model/       # Prebuilt verilog library (cells, primitives)
+                ├── verilog_files/           # RTL design examples + testbenches
+                ├── DC_WORKSHOP/             # Digital Compiler related labs
+                ├── lib/                     # Library support files
+                ├── README.md                # Project info
+                └── yosys_run.sh             # Script to run synthesis using Yosys
+```
+# Step 3:Then go to verilog_files and check whether all librarires are cloned properly
+
+
