@@ -111,7 +111,7 @@ After dumping into the simulator the code will be in a executable file`a.out`
 > ```bash
 > gvim tb_good_mux.v -o good_mux.v
 > ```
->  Opens tb_good_mux.v and good_mux.v together in GVim. The -o option makes them appear in a split window (side by side). You can compare, view, and edit both files in the same editor, and save changes normally with :w or exit with :q.
+>  Opens tb_good_mux.v![code]( and good_mux.v![code]( together in GVim. The -o option makes them appear in a split window (side by side). You can compare, view, and edit both files in the same editor, and save changes normally with :w or exit with :q.
 
 
 
