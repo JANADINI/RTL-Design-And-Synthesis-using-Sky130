@@ -48,7 +48,7 @@ A simulator is a tool used in RTL design flow to run Verilog/VHDL code and obser
 
 - **Purpose**: Helps debug and verify the design before synthesis and hardware implementation.
 
-  ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Testbench.png)
+  ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Testbench.png)
 
   ---
  # Step 0: Start from your home
