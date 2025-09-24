@@ -24,7 +24,7 @@ A simulator is a tool used in RTL design flow to run Verilog/VHDL code and obser
 - Examples-: **Icarus Verilog (iverilog).**
 - Purpose-: Catch functional errors early, long before synthesis and fabrication.
   
-  ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Icarus%20verilog%20design%20flow.png)
+  ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Icarus%20verilog%20design%20flow.png)
 
   ---
 # Design
