@@ -139,6 +139,10 @@ Verification of the synthesized netlist ensures the gate-level design matches th
 >[!Note]
 > The number of **primary inputs and outputs** remains the same for both RTL and synthesized netlist.  
 > Therefore, the **same testbench (TB)** can be used to verify both designs.
+---
+# Flow for RTL code to Netlist
+![###What is RTL code?]()
+
 
 
 
