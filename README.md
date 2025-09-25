@@ -141,7 +141,8 @@ Verification of the synthesized netlist ensures the gate-level design matches th
 > Therefore, the **same testbench (TB)** can be used to verify both designs.
 ---
 # Flow for RTL code to Netlist
-What is RTL code?![example](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/RTL%20Design.png)
+What is RTL code? [Visualize](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/RTL%20Design.png)
+
 
 
 
