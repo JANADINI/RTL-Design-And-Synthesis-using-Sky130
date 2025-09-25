@@ -56,7 +56,7 @@ A simulator is a tool used in RTL design flow to run Verilog/VHDL code and obser
   
  ### Step 1: Start from your home
  ```bash
-cd /home/vboxuser/vsd/VLSI
+cd /home/janadinisk/vsd/VLSI
 ls
 ```
 Once if you list it , you will see
@@ -134,11 +134,11 @@ After dumping into the simulator the code will be in a executable file`a.out`
 ---
 # Table of Contents
 
- - [What is RTL code?](#RTL-code)
- - [What is Netlist?](#Netlist)
- - [What is .lib?](#`.lib`-file)
- - [Why Different flavours of Gate?](#Why-Different-flavours-of-Gate-?)
- - [Why Both Faster and Slow Cells are required?](#Why-Both-Faster-and-Slow-Cells-are-required-?)
+ - ![What is RTL code?](#RTL-code)
+ - ![What is Netlist?](#Netlist)
+ - ![What is .lib?](#.lib)
+ - ![Why Different flavours of Gate?](#Why-Different-flavours-of-Gate?)
+ - ![Why Both Faster and Slow Cells are required?](#Why-Both-Faster-and-Slow-Cells-are-required?)
  
  # RTL Code
  Code written in Verilog/VHDL that describes a circuit’s data flow between **registers** and the **logic operations** performed on that data, used for synthesis and simulation.
