@@ -81,7 +81,7 @@ ls
 Inside this folder you will see all the Standard cells / library files for RTL & synthesis.The Directory Flow from /home will be like:
 ```bash
 /home
-└── vboxuser
+└── janadinisk
     └── vsd
         └── VLSI
             └── sky130RTLDesignAndSynthesisWorkshop/
@@ -102,11 +102,11 @@ Inside this folder you will see all the Standard cells / library files for RTL &
 iverilog good_mux.v  tb_good_mux.v
 ```
 After dumping into the simulator the code will be in a executable file`a.out`
-### Step 5: Execute the <mark>a.out</mark> executable file
+### Step 6: Execute the <mark>a.out</mark> executable file
 ```bash
 ./a.out
 ```
-### Step 6: View the <mark>.vcd</mark> file in <mark>GTKwave</mark>
+### Step 7: View the <mark>.vcd</mark> file in <mark>GTKwave</mark>
 
 ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Mux%20in%20GTKwave.png)
 
@@ -136,9 +136,9 @@ After dumping into the simulator the code will be in a executable file`a.out`
 
  - [What is RTL code?](#RTL-code)
  - [What is Netlist?](#Netlist)
- - [What is .lib?](#.lib-file)
- - [Why Different flavours of Gate?](#Why-Different-flavours-of-Gate)
- - [Why Both Faster and Slow Cells are required?](#Why-Both-Faster-and-Slow-Cells-are-required)
+ - [What is .lib?](#`.lib`-file)
+ - [Why Different flavours of Gate?](#Why-Different-flavours-of-Gate-?)
+ - [Why Both Faster and Slow Cells are required?](#Why-Both-Faster-and-Slow-Cells-are-required-?)
  
  # RTL Code
  Code written in Verilog/VHDL that describes a circuit’s data flow between **registers** and the **logic operations** performed on that data, used for synthesis and simulation.
