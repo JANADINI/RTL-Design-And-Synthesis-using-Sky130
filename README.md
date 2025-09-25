@@ -137,44 +137,44 @@ After dumping into the simulator the code will be in a executable file`a.out`
  |Contents         |View|
  |-----------------|-----------------|
  |[What is RTL code?](#RTL-code)|![Visualization]()|
- |[What is Netlist?]()|![Visualization]()|
- |[What is .lib?]()|![Visualization]()|
- |[Why Different flavours of Gate?]()|![Visualization]()|
- |[Are Faster Cells sufficient?]()|![Visualization]()|
- |[Why we need Slow Cells?]()|![Visualization]()|
- |[Are Slow Cells sufficient?]()|![Visualization]()|
- |[Faster Cells VS Slow Cells]()|![Visualization]()|
- |[Selection of Cells]()|![Visualization]()|
- ### RTL Code
+ |[What is Netlist?](#Netlist)|![Visualization]()|
+ |[What is .lib?](#.lib-file)|![Visualization]()|
+ |[Why Different flavours of Gate?](#Why-Different-flavours-of-Gate)|![Visualization]()|
+ |[Why Both Faster and Slow Cells are required?](#Why-Both-Faster-and-Slow-Cells-are-required)|![Visualization]()|
+ 
+ # RTL Code
  Code written in Verilog/VHDL that describes a circuit’s data flow between **registers** and the **logic operations** performed on that data, used for synthesis and simulation.
  
- ### NetlistNetlist
+ # Netlist
  After RTL synthesis, a netlist is a detailed textual representation of a circuit that lists all the components (like gates, transistors, resistors) and their interconnections. It is used for simulation, verification, and layout design to ensure the circuit works as intended.
  
- ### `.lib`file
+ # `.lib`file
  A technology library file that contains standard cell definitions along with their timing, power, and functional information, used by synthesis and timing analysis tools to implement RTL designs.
  
 # Why Different Flavours of Gates?
 The maximum clock speed of a digital circuit is limited by delays in the logic path. For correct operation:
 T_CLK > T_CQ_A + T_COMBI + T_SETUP_B
 
-### Terms explained:
+### Terms explained
 
 - **T_CLK** : Clock period – the time between two active clock edges.  
 - **T_CQ_A** : Clock-to-Q delay of flip-flop A – time taken for data to appear at output Q after the clock edge.  
 - **T_COMBI** : Delay of the combinational logic block between flip-flops.  
-- **T_SETUP_B** : Setup time of flip-flop B – the time before the clock edge by which input data must be stable.  
+- **T_SETUP_B** : Setup time of flip-flop B – the time before the clock edge by which input data must be stable. 
 
-### Note:
-To increase speed, **T_COMBI** must be reduced.  
-This is why different flavours of gates (fast, low-power, high-drive) are used, balancing **speed**, **power**, and **area**.
+>[!Note]
+>To increase speed, **T_COMBI** must be reduced.  
+> his is why different flavours of gates (fast, low-power, high-drive) are used, balancing **speed**, **power**, and **area**.
 
+# Why Both Faster and Slower Cells Are Required
 
+- **Fast Cells** → used in **critical paths** to meet timing (setup & hold).  
+- **Slow Cells** → used in **non-critical paths** to save power and area.  
+- **Balance Needed** → only fast cells increase power & area; only slow cells may fail timing.  
 
- 
- 
- 
- 
+>[!Note]  
+> Using a mix of fast and slow cells ensures an **optimized design** balancing **speed, power, and area**.
+---
 # Verification of <mark>Netlitst.v</mark> by Icarus verilog
 
 Verification of the synthesized netlist ensures the gate-level design matches the RTL functionality and meets required specifications.The flow will be like
