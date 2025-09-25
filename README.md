@@ -52,7 +52,7 @@ A simulator is a tool used in RTL design flow to run Verilog/VHDL code and obser
   ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Testbench.png)
 
   ---
-# Flow from Simulation(RTL.v) to Synthesis(Netlist.v):
+# Flow from Simulation(RTL.v) to Synthesis(Netlist.v)
   
  ### Step 1: Start from your home
  ```bash
@@ -93,11 +93,11 @@ Inside this folder you will see all the Standard cells / library files for RTL &
                 ├── README.md                # Project info
                 └── yosys_run.sh             # Script to run synthesis using Yosys
 ```
-# Step 3:Then go to verilog_files and check whether all librarires are cloned properly
+### Step 4:Then go to verilog_files and check whether all librarires are cloned properly
 
 ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/code%20dumped%20in%20iverilog(a.out).png)
 
-### Step 4: Next dump th <mark>RTL code</mark> in <mark>iverilog</mark> 
+### Step 5: Next dump th <mark>RTL code</mark> in <mark>iverilog</mark> 
 ```bash
 iverilog good_mux.v  tb_good_mux.v
 ```
