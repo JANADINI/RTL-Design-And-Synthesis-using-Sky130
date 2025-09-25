@@ -117,7 +117,7 @@ After dumping into the simulator the code will be in a executable file`a.out`
 >  Opens tb_good_mux.v(![code](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/))tb_good_mux.v and good_mux.v(![code](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/RTL%20code%20for%20good_mux.v)) together in GVim. The -o option makes them appear in a split window (side by side). You can compare, view, and edit both files in the same editor, and save changes normally with :w or exit with :q.
 
 ---
-# Synthesizer
+# Synthesizer-Intro
 
 - A synthesizer transforms **high-level RTL** descriptions into a **low-level gate-level** representation that hardware can implement.
 
@@ -131,6 +131,13 @@ After dumping into the simulator the code will be in a executable file`a.out`
   
   ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Synthesizer(yosys).png)
 
+---
+# Table of Contents
+ |What is RTL code? 
+ |What is Netlist?
+ |What is .lib?
+ |Why Different flavours of Gate?
+  Netlist: After RTL synthesis, a netlist is a detailed textual representation of a circuit that lists all the components (like gates, transistors, resistors) and their interconnections. It is used for simulation, verification, and layout design to ensure the circuit works as intended.
 # Verification of <mark>Netlitst.v</mark> by Icarus verilog
 
 Verification of the synthesized netlist ensures the gate-level design matches the RTL functionality and meets required specifications.The flow will be like
@@ -140,8 +147,6 @@ Verification of the synthesized netlist ensures the gate-level design matches th
 > The number of **primary inputs and outputs** remains the same for both RTL and synthesized netlist.  
 > Therefore, the **same testbench (TB)** can be used to verify both designs.
 ---
-# Flow for RTL code to Netlist
-What is RTL code? [Visualize](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/RTL%20Design.png)
 
 
 
