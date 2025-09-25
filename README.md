@@ -133,10 +133,13 @@ After dumping into the simulator the code will be in a executable file`a.out`
 
 ---
 # Table of Contents
- |What is RTL code? 
- |What is Netlist?
- |What is .lib?
- |Why Different flavours of Gate?
+ |What is RTL code?|![Visualization]()|
+ |What is Netlist?|![Visualization]()|
+ |What is .lib?|![Visualization]()|
+ |Why Different flavours of Gate?|![Visualization]()|
+ |Are Faster Cells sufficient?|![Visualization]()|
+ |Why we need Slow Cells?|![Visualization]()|
+ |Are Slow Cells sufficient?|![Visualization]()|
   Netlist: After RTL synthesis, a netlist is a detailed textual representation of a circuit that lists all the components (like gates, transistors, resistors) and their interconnections. It is used for simulation, verification, and layout design to ensure the circuit works as intended.
 # Verification of <mark>Netlitst.v</mark> by Icarus verilog
 
