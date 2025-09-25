@@ -51,7 +51,9 @@ A simulator is a tool used in RTL design flow to run Verilog/VHDL code and obser
   ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Testbench.png)
 
   ---
- # Step 0: Start from your home
+# Flow from Simulation(RTL.v) to Synthesis(Netlist.v):
+  
+ ### Step 1: Start from your home
  ```bash
 cd /home/vboxuser/vsd/VLSI
 ls
@@ -60,7 +62,7 @@ Once if you list it , you will see
 ```bash
 (no sky130 folder yet)
 ```
-# Step 1: Clone the GitHub repository  ![link](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git)
+### Step 2: Clone the GitHub repository  ![link](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git)
 ```bash
 git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 ls
@@ -70,7 +72,7 @@ You will see
 sky130RTLDesignAndSynthesisWorkshop
 ```
 Repository cloned successfully. All project files are inside this folder.
-# Step 2: Go inside project folder
+### Step 3: Go inside project folder
 ```bash
 cd sky130RTLDesignAndSynthesisWorkshop
 ls
@@ -94,16 +96,16 @@ Inside this folder you will see all the Standard cells / library files for RTL &
 
 ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/code%20dumped%20in%20iverilog(a.out).png)
 
-# Step 4: Next dump th <mark>RTL code</mark> in <mark>iverilog</mark> 
+### Step 4: Next dump th <mark>RTL code</mark> in <mark>iverilog</mark> 
 ```bash
 iverilog good_mux.v  tb_good_mux.v
 ```
 After dumping into the simulator the code will be in a executable file`a.out`
-# Step 5: Execute the <mark>a.out</mark> executable file
+### Step 5: Execute the <mark>a.out</mark> executable file
 ```bash
 ./a.out
 ```
-# Step 6: View the <mark>.vcd</mark> file in <mark>GTKwave</mark>
+### Step 6: View the <mark>.vcd</mark> file in <mark>GTKwave</mark>
 
 ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Mux%20in%20GTKwave.png)
 
