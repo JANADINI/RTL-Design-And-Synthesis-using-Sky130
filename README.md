@@ -1,3 +1,4 @@
+
 # RTL Design And Synthesis Using Sky130
 
 A day-wise hands-on series on Verilog **RTL** design, simulation, synthesis, and digital circuit optimization with labs, code, and explanations.
@@ -114,6 +115,20 @@ After dumping into the simulator the code will be in a executable file`a.out`
 > gvim tb_good_mux.v -o good_mux.v
 > ```
 >  Opens tb_good_mux.v(![code](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/))tb_good_mux.v and good_mux.v(![code](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/RTL%20code%20for%20good_mux.v)) together in GVim. The -o option makes them appear in a split window (side by side). You can compare, view, and edit both files in the same editor, and save changes normally with :w or exit with :q.
+
+---
+# Synthesizer
+
+- A synthesizer transforms **high-level RTL** descriptions into a **low-level gate-level** representation that hardware can implement.
+
+- It is a **translation engine** that maps Verilog/VHDL code onto standard cells of a technology library.
+
+- A synthesizer performs **RTL-to-gate conversion**, applying optimizations for **timing, area, and power**.
+
+- In VLSI flow, the synthesizer is the **bridge** between functional design **(RTL)** and hardware realization **(netlist).**
+
+- Tool used here: **Yosys.**
+  
 
 
 
