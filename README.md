@@ -129,6 +129,13 @@ After dumping into the simulator the code will be in a executable file`a.out`
 
 - Tool used here: **Yosys.**
   
+  ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Synthesizer(yosys).png)
+
+# Verification of `Netlitst.v` by Icarus verilog
+
+Verification of the synthesized netlist ensures the gate-level design matches the RTL functionality and meets required specifications.The flow will be like
+![image]()
+
 
 
 
