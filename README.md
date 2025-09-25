@@ -136,7 +136,7 @@ After dumping into the simulator the code will be in a executable file`a.out`
 
  |Contents         |View|
  |-----------------|-----------------|
- |[What is RTL code?](#RTL-code)|![Visualization]()|
+ |[What is RTL code?](#RTL-code)|![Visualization](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/RTL%20Design.png)|
  |[What is Netlist?](#Netlist)|![Visualization]()|
  |[What is .lib?](#.lib-file)|![Visualization]()|
  |[Why Different flavours of Gate?](#Why-Different-flavours-of-Gate)|![Visualization]()|
