@@ -133,6 +133,7 @@ After dumping into the simulator the code will be in a executable file`a.out`
 
 ---
 # Table of Contents
+ |-----------------|-----------------|
  |What is RTL code?|![Visualization]()|
  |What is Netlist?|![Visualization]()|
  |What is .lib?|![Visualization]()|
