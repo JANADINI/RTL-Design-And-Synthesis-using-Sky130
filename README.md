@@ -134,13 +134,11 @@ After dumping into the simulator the code will be in a executable file`a.out`
 ---
 # Table of Contents
 
- |Contents         |View|
- |-----------------|-----------------|
- |[What is RTL code?](#RTL-code)|![Visualization](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/RTL%20Design.png)|
- |[What is Netlist?](#Netlist)|![Visualization]()|
- |[What is .lib?](#.lib-file)|![Visualization]()|
- |[Why Different flavours of Gate?](#Why-Different-flavours-of-Gate)|![Visualization](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/Different%20Flavours%20of%20gate.png)|
- |[Why Both Faster and Slow Cells are required?](#Why-Both-Faster-and-Slow-Cells-are-required)|![Visualization]()|
+ - [What is RTL code?](#RTL-code)
+ - [What is Netlist?](#Netlist)
+ - [What is .lib?](#.lib-file)
+ - [Why Different flavours of Gate?](#Why-Different-flavours-of-Gate)
+ - [Why Both Faster and Slow Cells are required?](#Why-Both-Faster-and-Slow-Cells-are-required)
  
  # RTL Code
  Code written in Verilog/VHDL that describes a circuit’s data flow between **registers** and the **logic operations** performed on that data, used for synthesis and simulation.
@@ -164,7 +162,7 @@ T_CLK > T_CQ_A + T_COMBI + T_SETUP_B
 
 >[!Note]
 >To increase speed, **T_COMBI** must be reduced.  
-> his is why different flavours of gates (fast, low-power, high-drive) are used, balancing **speed**, **power**, and **area**.
+> This is why different flavours of gates (fast, low-power, high-drive) are used, balancing **speed**, **power**, and **area**.
 
 # Why Both Faster and Slower Cells Are Required
 
