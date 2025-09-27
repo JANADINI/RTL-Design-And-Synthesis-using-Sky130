@@ -1,187 +1,230 @@
 
-# RTL Design And Synthesis Using Sky130
 
-A day-wise hands-on series on Verilog **RTL** design, simulation, synthesis, and digital circuit optimization with labs, code, and explanations.
 
- - - -
- # Day 1 – Verilog RTL & Synthesis
+# Day 2: Timing Libraries, Synthesis Approaches, and Efficient Flip-Flop Coding
 
-Open source simulator **Icarus verilog** – intro
-
-**Icarus Verilog** + **GTKWave** – labs
-
-**Yosys** + Logic Synthesis – intro
-
-**Sky130 PDK** – hands-on labs
+Welcome to Day 2 of the RTL Workshop. This day covers three crucial topics:
+- Understanding the `.lib` timing library (sky130_fd_sc_hd__tt_025C_1v80.lib) used in open-source PDKs.
+- Comparing hierarchical vs. flat synthesis methods.
+- Exploring efficient coding styles for flip-flops in RTL design.
 
 ---
-# Simulator
 
-A simulator is a tool used in RTL design flow to run Verilog/VHDL code and observe its behavior before hardware implementation.
 
-- It models how the circuit reacts to inputs over time.
-- <mark>Output changes only when inputs or internal states (flip-flops, registers) change.</mark>
-- Helps to debug design and verify logic correctness.
-- Examples-: **Icarus Verilog (iverilog).**
-- Purpose-: Catch functional errors early, long before synthesis and fabrication.
-  
-  ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Icarus%20verilog%20design%20flow.png)
+# Contents
 
-  ---
-# Design
+- [Timing Libraries](#timing-libraries)
+  - [SKY130 PDK Overview](#sky130-pdk-overview)
+  - [Decoding tt_025C_1v80 in the SKY130 PDK](#decoding-tt_025c_1v80-in-the-sky130-pdk)
+  - [Opening and Exploring the .lib File](#opening-and-exploring-the-lib-file)
 
-- **Definition**: Describes the functionality of a digital circuit at the RTL level using HDL, defining its logic and data flow.
+- [Hierarchical vs. Flattened Synthesis](#hierarchical-vs-flattened-synthesis)
+  - [Hierarchical Synthesis](#hierarchical-synthesis)
+  - [Flattened Synthesis](#flattened-synthesis)
+  - [Key Differences](#key-differences)
 
-- **What it does**: Processes one or more primary inputs to produce outputs according to the intended behavior.
+- [Flip-Flop Coding Styles](#flip-flop-coding-styles)
+  - [Asynchronous Reset D Flip-Flop](#asynchronous-reset-d-flip-flop)
+  - [Asynchronous Set D Flip-Flop](#asynchronous-set-d-flip-flop)
+  - [Synchronous Reset D Flip-Flop](#synchronous-reset-d-flip-flop)
 
-- **Examples**: Verilog code for MUX, Flip-Flop, ALU,...
-
-- **Purpose**: Creates a clear, testable model of the circuit that can be simulated and synthesized for hardware implementation
-  
-  ---
-# Testbench
-
-- **Definition**: A verification environment written in HDL to test and validate the design.
-
-- **What it does**: Applies stimulus to the design, observes outputs, and checks if the behavior matches the specification. <mark>It does not have any primary inputs or outputs of its own.</mark>
-
-- **Examples**: Verilog testbench for MUX, Flip-Flop, ALU,..
-
-- **Purpose**: Helps debug and verify the design before synthesis and hardware implementation.
-
-  ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Testbench.png)
-
-  ---
-# Flow from Simulation(RTL.v) to Synthesis(Netlist.v)
-  
- ### Step 1: Start from your home
- ```bash
-cd /home/janadinisk/vsd/VLSI
-ls
-```
-Once if you list it , you will see
-```bash
-(no sky130 folder yet)
-```
-### Step 2: Clone the GitHub repository  ![link](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git)
-```bash
-git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
-ls
-```
-You will see
-```bash
-sky130RTLDesignAndSynthesisWorkshop
-```
-Repository cloned successfully. All project files are inside this folder.
-### Step 3: Go inside project folder
-```bash
-cd sky130RTLDesignAndSynthesisWorkshop
-ls
-```
-Inside this folder you will see all the Standard cells / library files for RTL & synthesis.The Directory Flow from /home will be like:
-```bash
-/home
-└── janadinisk
-    └── vsd
-        └── VLSI
-            └── sky130RTLDesignAndSynthesisWorkshop/
-                ├── my_lib/
-                │   └── verilog_model/       # Prebuilt verilog library (cells, primitives)
-                ├── verilog_files/           # RTL design examples + testbenches
-                ├── DC_WORKSHOP/             # Digital Compiler related labs
-                ├── lib/                     # Library support files
-                ├── README.md                # Project info
-                └── yosys_run.sh             # Script to run synthesis using Yosys
-```
-### Step 4:Then go to verilog_files and check whether all librarires are cloned properly
-
-![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/code%20dumped%20in%20iverilog(a.out).png)
-
-### Step 5: Next dump th <mark>RTL code</mark> in <mark>iverilog</mark> 
-```bash
-iverilog good_mux.v  tb_good_mux.v
-```
-After dumping into the simulator the code will be in a executable file`a.out`
-### Step 6: Execute the <mark>a.out</mark> executable file
-```bash
-./a.out
-```
-### Step 7: View the <mark>.vcd</mark> file in <mark>GTKwave</mark>
-
-![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Mux%20in%20GTKwave.png)
-
-> [!Tip]
-> ```bash
-> gvim tb_good_mux.v -o good_mux.v
-> ```
->  Opens tb_good_mux.v(![code](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/))tb_good_mux.v and good_mux.v(![code](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Visualization/RTL%20code%20for%20good_mux.v)) together in GVim. The -o option makes them appear in a split window (side by side). You can compare, view, and edit both files in the same editor, and save changes normally with :w or exit with :q.
+- [Simulation and Synthesis Workflow](#simulation-and-synthesis-workflow)
+  - [Icarus Verilog Simulation](#icarus-verilog-simulation)
+  - [Synthesis with Yosys](#synthesis-with-yosys)
 
 ---
-# Synthesizer-Intro
 
-- A synthesizer transforms **high-level RTL** descriptions into a **low-level gate-level** representation that hardware can implement.
+## Timing Libraries
 
-- It is a **translation engine** that maps Verilog/VHDL code onto standard cells of a technology library.
+### SKY130 PDK Overview
 
-- A synthesizer performs **RTL-to-gate conversion**, applying optimizations for **timing, area, and power**.
+The SKY130 PDK is an open-source Process Design Kit based on SkyWater Technology's 130nm CMOS technology. It provides essential models and libraries for integrated circuit (IC) design, including timing, power, and process variation information.
 
-- In VLSI flow, the synthesizer is the **bridge** between functional design **(RTL)** and hardware realization **(netlist).**
+### Decoding tt_025C_1v80 in the SKY130 PDK
 
-- Tool used here: **Yosys.**
-  
-  ![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/Synthesizer(yosys).png)
+- **tt**: Typical process corner.
+- **025C**: Represents a temperature of 25°C, relevant for temperature-dependent performance.
+- **1v80**: Indicates a core voltage of 1.8V.
+
+This naming convention clarifies which process, voltage, and temperature conditions the library models.
 
 ---
-# Table of Contents
 
- - ![What is RTL code?](#RTL-code)
- - ![What is Netlist?](#Netlist)
- - ![What is .lib?](#.lib)
- - ![Why Different flavours of Gate?](#Why-Different-flavours-of-Gate?)
- - ![Why Both Faster and Slow Cells are required?](#Why-Both-Faster-and-Slow-Cells-are-required?)
- 
- # RTL Code
- Code written in Verilog/VHDL that describes a circuit’s data flow between **registers** and the **logic operations** performed on that data, used for synthesis and simulation.
- 
- # Netlist
- After RTL synthesis, a netlist is a detailed textual representation of a circuit that lists all the components (like gates, transistors, resistors) and their interconnections. It is used for simulation, verification, and layout design to ensure the circuit works as intended.
- 
- # `.lib`file
- A technology library file that contains standard cell definitions along with their timing, power, and functional information, used by synthesis and timing analysis tools to implement RTL designs.
- 
-# Why Different Flavours of Gates?
-The maximum clock speed of a digital circuit is limited by delays in the logic path. For correct operation:
-T_CLK > T_CQ_A + T_COMBI + T_SETUP_B
+### Opening and Exploring the .lib File
 
-### Terms explained
+To open the sky130_fd_sc_hd__tt_025C_1v80.lib file:
 
-- **T_CLK** : Clock period – the time between two active clock edges.  
-- **T_CQ_A** : Clock-to-Q delay of flip-flop A – time taken for data to appear at output Q after the clock edge.  
-- **T_COMBI** : Delay of the combinational logic block between flip-flops.  
-- **T_SETUP_B** : Setup time of flip-flop B – the time before the clock edge by which input data must be stable. 
+1. **Install a text editor:**
+   ```shell
+   sudo apt install gedit
+   ```
+2. **Open the file:**
+   ```shell
+   gedit sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+ ![Screenshot_2025-05-29_11-43-13](https://github.com/user-attachments/assets/0c31ddf8-8a95-44a4-acaa-e1c5f0518425)
 
->[!Note]
->To increase speed, **T_COMBI** must be reduced.  
-> This is why different flavours of gates (fast, low-power, high-drive) are used, balancing **speed**, **power**, and **area**.
 
-# Why Both Faster and Slower Cells Are Required
-
-- **Fast Cells** → used in **critical paths** to meet timing (setup & hold).  
-- **Slow Cells** → used in **non-critical paths** to save power and area.  
-- **Balance Needed** → only fast cells increase power & area; only slow cells may fail timing.  
-
->[!Note]  
-> Using a mix of fast and slow cells ensures an **optimized design** balancing **speed, power, and area**.
 ---
-# Verification of <mark>Netlitst.v</mark> by Icarus verilog
 
-Verification of the synthesized netlist ensures the gate-level design matches the RTL functionality and meets required specifications.The flow will be like
+## Hierarchical vs. Flattened Synthesis
 
-![image](https://github.com/JANADINI/RTL-Design-And-Synthesis-using-Sky130/blob/main/Week_1/Day-1/Photos/verification%20of%20netlist.png)
->[!Note]
-> The number of **primary inputs and outputs** remains the same for both RTL and synthesized netlist.  
-> Therefore, the **same testbench (TB)** can be used to verify both designs.
+### Hierarchical Synthesis
+
+- **Definition**: Retains the module hierarchy as defined in RTL, synthesizing modules separately.
+- **How it Works**: Tools like Yosys process each module independently, using commands such as `hierarchy` to analyze and set up the design structure.
+
+**Advantages:**
+- Faster synthesis time for large designs.
+- Improved debugging and analysis due to maintained module boundaries.
+- Modular approach, aiding integration with other tools.
+
+**Disadvantages:**
+- Cross-module optimizations are limited.
+- Reporting can require additional configuration.
+
+**Example:**
+![Screenshot_2025-05-29_19-04-48](https://github.com/user-attachments/assets/91f0244a-2c41-42ea-be6f-468880c3af33)
+
+
 ---
+
+### Flattened Synthesis
+
+- **Definition**: Merges all modules into a single flat netlist, eliminating hierarchy.
+- **How it Works**: The `flatten` command in Yosys collapses the hierarchy, allowing whole-design optimizations.
+
+**Advantages:**
+- Enables aggressive, cross-module optimizations.
+- Results in a unified netlist, sometimes simplifying downstream processes.
+
+**Disadvantages:**
+- Longer runtime for large designs.
+- Loss of hierarchy complicates debugging and reporting.
+- Can increase memory usage and netlist complexity.
+
+**Example:**
+
+![Screenshot_2025-05-29_19-20-47](https://github.com/user-attachments/assets/e1d94a5d-d3f7-41ee-8e69-ca0c05be81a3)
+
+> **Important:** Hierarchical synthesis maintains sub-modules in the design, while flattening produces a netlist from the ground up.
+
+---
+
+### Key Differences
+
+| Aspect                | Hierarchical Synthesis             | Flattened Synthesis           |
+|-----------------------|------------------------------------|------------------------------|
+| Hierarchy             | Preserved                          | Collapsed                    |
+| Optimization Scope    | Module-level only                  | Whole-design                 |
+| Runtime               | Faster for large designs           | Slower for large designs     |
+| Debugging             | Easier (traces to RTL)             | Harder                       |
+| Output Complexity     | Modular structure                  | Single, complex netlist      |
+| Use Case              | Modularity, analysis, reporting    | Maximum optimization         |
+
+---
+
+## Flip-Flop Coding Styles
+
+Flip-flops are fundamental sequential elements in digital design, used to store binary data. Below are efficient coding styles for different reset/set behaviors.
+
+### Asynchronous Reset D Flip-Flop
+
+```verilog
+module dff_asyncres (input clk, input async_reset, input d, output reg q);
+  always @ (posedge clk, posedge async_reset)
+    if (async_reset)
+      q <= 1'b0;
+    else
+      q <= d;
+endmodule
+```
+- **Asynchronous reset**: Overrides clock, setting q to 0 immediately.
+- **Edge-triggered**: Captures d on rising clock edge if reset is low.
+
+### Asynchronous Set D Flip-Flop
+
+```verilog
+module dff_async_set (input clk, input async_set, input d, output reg q);
+  always @ (posedge clk, posedge async_set)
+    if (async_set)
+      q <= 1'b1;
+    else
+      q <= d;
+endmodule
+```
+- **Asynchronous set**: Overrides clock, setting q to 1 immediately.
+
+### Synchronous Reset D Flip-Flop
+
+```verilog
+module dff_syncres (input clk, input async_reset, input sync_reset, input d, output reg q);
+  always @ (posedge clk)
+    if (sync_reset)
+      q <= 1'b0;
+    else
+      q <= d;
+endmodule
+```
+- **Synchronous reset**: Takes effect only on the clock edge.
+
+---
+
+## Simulation and Synthesis Workflow
+
+### Icarus Verilog Simulation
+
+1. **Compile:**
+   ```shell
+   iverilog dff_asyncres.v tb_dff_asyncres.v
+   ```
+2. **Run:**
+   ```shell
+   ./a.out
+   ```
+3. **View Waveform:**
+   ```shell
+   gtkwave tb_dff_asyncres.vcd
+   ```
+![Screenshot_2025-05-30_10-45-13](https://github.com/user-attachments/assets/1176581e-fd6c-4b71-8af5-5d7d5f6dbcda)
+
+
+### Synthesis with Yosys
+
+1. Start Yosys:
+   ```shell
+   yosys
+   ```
+2. Read Liberty library:
+   ```shell
+   read_liberty -lib /address/to/your/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+3. Read Verilog code:
+   ```shell
+   read_verilog /path/to/dff_asyncres.v
+   ```
+4. Synthesize:
+   ```shell
+   synth -top dff_asyncres
+   ```
+5. Map flip-flops:
+   ```shell
+   dfflibmap -liberty /address/to/your/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+6. Technology mapping:
+   ```shell
+   abc -liberty /address/to/your/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+   ```
+7. Visualize the gate-level netlist:
+   ```shell
+   show
+   ```
+![Screenshot_2025-05-30_11-03-00](https://github.com/user-attachments/assets/fa8337df-e0ec-4b01-9b18-5910768e4421)
+
+
+---
+## Summary
+This overview provides you with practical insights into timing libraries, synthesis strategies, and reliable coding practices for flip-flops. Continue experimenting with these concepts to deepen your understanding of RTL design and synthesis.
 
 
 
