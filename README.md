@@ -190,3 +190,5 @@ Verification of the synthesized netlist ensures the gate-level design matches th
 
 
 
+
+
